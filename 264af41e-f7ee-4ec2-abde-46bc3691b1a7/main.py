@@ -5,7 +5,7 @@ from surmount.logging import log
 class TradingStrategy(Strategy):
     def __init__(self):
         # Assuming "PL" is the ticker symbol for Planet Labs. Replace with the correct symbol if necessary.
-        self.ticker = "PL"
+        self.ticker = "RKLB"
         self.previous_price = None
 
     @property
