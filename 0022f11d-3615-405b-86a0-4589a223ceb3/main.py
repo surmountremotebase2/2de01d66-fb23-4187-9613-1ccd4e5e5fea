@@ -4,7 +4,7 @@ from surmount.logging import log
 
 class TradingStrategy(Strategy):
     def __init__(self):
-        self.tickers = ["RKLB"]  # Define the ticker we are interested in
+        self.tickers = ["RXRX"]  # Define the ticker we are interested in
 
     @property
     def interval(self):
@@ -19,7 +19,7 @@ class TradingStrategy(Strategy):
         rxrx_data = data["ohlcv"]  # Extract ohlcv data for calculations
 
         # Calculate MACD for RXRX
-        macd = MACD("RKLB", rxrx_data, fast=12, slow=26)
+        macd = MACD("RXRX", rxrx_data, fast=12, slow=26)
         log("******* macd: ********")
         log(str(macd))
 
