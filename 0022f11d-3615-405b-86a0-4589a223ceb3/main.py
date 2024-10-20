@@ -23,7 +23,7 @@ class TradingStrategy(Strategy):
         # Calculate MACD for RXRX
         macd = MACD("RXRX", rxrx_data, fast=12, slow=26)
         log("******* macd: ********")
-        log(str(MACD))
+        log(str(macd))
 
         # Extract MACD and Signal line lists. macd["MACD"] would give us the MACD line, whereas macd["signal"] would give us the Signal line.
         macd_line, signal_line = macd["MACD"], macd["signal"]
