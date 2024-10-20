@@ -17,8 +17,6 @@ class TradingStrategy(Strategy):
     def run(self, data):
         allocation = 0  # Default to no allocation
         rxrx_data = data["ohlcv"]  # Extract ohlcv data for calculations
-        log("******* rxr_data:  ********")
-        log(str(rxrx_data))
 
         # Calculate MACD for RXRX
         macd = MACD("RXRX", rxrx_data, fast=12, slow=26)
