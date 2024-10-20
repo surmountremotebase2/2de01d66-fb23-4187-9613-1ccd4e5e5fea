@@ -27,7 +27,7 @@ class TradingStrategy(Strategy):
             current_price = ohlcv_data[-1][ticker]["close"]
             last_sma_value = sma20[-1]
             
-            if current_price - last_sma_value <= -0.02:
+            if current_price - last_sma_value <= -0.01:
                 # Current price is below the 20-day SMA, indicating a potential buy signal
                 log(f"Buying signal for {ticker}: current price {current_price} is lower than 20-day SMA of {last_sma_value}.")
                 allocation = 1  # Sets allocation to 100%
