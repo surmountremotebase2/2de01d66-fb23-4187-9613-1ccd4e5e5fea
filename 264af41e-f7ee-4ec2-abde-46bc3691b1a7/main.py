@@ -20,7 +20,7 @@ class TradingStrategy(Strategy):
     def run(self, data):
         # Fetch the last closing price of Planet Labs from the OHLCV data.
         current_price = data["ohlcv"][-1][self.ticker]["close"]
-        log(f "{data['ohlcv']}")
+        log(f "{data['ohlcv'][-1][self.ticker]}")
         
         # Initialize target allocation with no change initially.
         target_allocation = 0.5  # Assuming a neutral position where 0.5 does not indicate buying or selling. Adjust accordingly.
