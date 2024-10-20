@@ -36,7 +36,7 @@ class TradingStrategy(Strategy):
                 log("Buying signal triggered")
                 allocation = 1  # Full allocation
             
-            # Sell condition: if the MACD line crosses below the signal line
+            # Sell condition: if the MACD line crosses above the signal line
             elif macd_line[-2] > signal_line[-2] and macd_line[-1] < signal_line[-1]:
                 log("Selling signal triggered")
                 allocation = 0  # No allocation due to selling
