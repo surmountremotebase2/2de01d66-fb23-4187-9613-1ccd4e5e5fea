@@ -18,7 +18,7 @@ class TradingStrategy(Strategy):
 
     @property
     def interval(self):
-        return "10min"
+        return "1min"
 
     @property
     def data(self):
