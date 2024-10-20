@@ -37,7 +37,7 @@ class TradingStrategy(Strategy):
             prev_close_price = rxrx_data[-2]["RXRX"]["close"]  # Get the previous closing price
 
             # Buy condition: if the MACD line crosses above the signal line and the price is down by at least 3 cents from the previous close
-            if macd_line[-2] < signal_line[-2] and macd_line[-1] > signal_line[-1] and (prev_close_price - last_close_price) >= 0.03:
+            if macd_line[-2] < signal_line[-2] and macd_line[-1] > signal_line[-1]:
                 log("Buying signal triggered")
                 allocation = 1  # Full allocation
             
