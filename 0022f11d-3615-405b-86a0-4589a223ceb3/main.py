@@ -16,15 +16,18 @@ class TradingStrategy(Strategy):
 
     def run(self, data):
         allocation = 0  # Default to no allocation
-        macd_line, signal_line, histogram = data["ohlcv"]  # Extract ohlcv data for calculations
+        rxrx_data = data["ohlcv"]  # Extract ohlcv data for calculations
 
         # Calculate MACD for RXRX
-        macd = MACD("RXRX", rxrx_data, fast=12, slow=26)
-        log("******* macd: ********")
-        log(str(macd))
+        macd_line, signal_line, histogram = MACD("RXRX", rxrx_data, fast=12, slow=26)
+        log("******* macd_LLINE: ********")
+        log(str(macd_line))
+        log("******* signal_line: ********")
+        log(str(signal_line))
+        log("******* histogram: ********")
+        log(str(histogram))
 
         # Extract MACD and Signal line lists. macd["MACD"] would give us the MACD line, whereas macd["signal"] would give us the Signal line.
-        macd_line, signal_line, histogram = MACD(rxrx_data)
         
         if len(macd_line) > 1 and len(signal_line) > 1:
             last_close_price = rxrx_data[-1]["RXRX"]["close"]  # Get the latest closing price
