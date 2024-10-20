@@ -20,7 +20,7 @@ class TradingStrategy(Strategy):
         stock_data = data["ohlcv"]  # Extract ohlcv data for calculations
 
         # Calculate MACD for RXRX
-        macd = MACD(ticker, stock_data, fast=3, slow=26)
+        macd = MACD(self.ticker, stock_data, fast=3, slow=26)
         
         macd_line = macd["MACD_3_26_9"]
         signal_line = macd["MACDs_3_26_9"]
@@ -29,8 +29,8 @@ class TradingStrategy(Strategy):
         # Extract MACD and Signal line lists. macd["MACD"] would give us the MACD line, whereas macd["signal"] would give us the Signal line.
         
         if len(macd_line) > 1 and len(signal_line) > 1:
-            last_close_price = stock_data[-1][ticker]["close"]  # Get the latest closing price
-            prev_close_price = stock_data[-2][ticker]["close"]  # Get the previous closing price
+            last_close_price = stock_data[-1][self.ticker]["close"]  # Get the latest closing price
+            prev_close_price = stock_data[-2][self.ticker]["close"]  # Get the previous closing price
 
             log(f"-2 macd_line value - signal_line value = {macd_line[-2] - signal_line[-2]}")
             log(f"-1 macd_line value - signal_line value = {macd_line[-1] - signal_line[-1]}")
