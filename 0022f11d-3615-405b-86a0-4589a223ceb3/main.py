@@ -8,7 +8,7 @@ class TradingStrategy(Strategy):
 
     @property
     def interval(self):
-        return "1day"  # Set the interval for MACD calculation
+        return "1hour"  # Set the interval for MACD calculation
 
     @property
     def assets(self):
