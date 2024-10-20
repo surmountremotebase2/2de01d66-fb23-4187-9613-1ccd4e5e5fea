@@ -23,12 +23,7 @@ class TradingStrategy(Strategy):
         
         macd_line = macd["MACD_12_26_9"]
         signal_line = macd["MACDs_12_26_9"]
-        
-        log("******* macd_LLINE: ********")
-        log(str(macd_line))
-        log("******* signal_line: ********")
-        log(str(signal_line))
-        
+            
 
         # Extract MACD and Signal line lists. macd["MACD"] would give us the MACD line, whereas macd["signal"] would give us the Signal line.
         
