@@ -20,7 +20,7 @@ class TradingStrategy(Strategy):
         rxrx_data = data["ohlcv"]  # Extract ohlcv data for calculations
 
         # Calculate MACD for RXRX
-        macd = MACD("RXRX", rxrx_data, fast=3, slow=26)
+        macd = MACD(ticker, rxrx_data, fast=3, slow=26)
         
         macd_line = macd["MACD_3_26_9"]
         signal_line = macd["MACDs_3_26_9"]
