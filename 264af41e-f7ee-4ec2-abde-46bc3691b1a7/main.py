@@ -14,7 +14,7 @@ class TradingStrategy(Strategy):
     @property
     def interval(self):
         # Setting the data interval to 1 minute.
-        return "1min"
+        return "5min"
 
     def run(self, data):
         # Fetch the last closing price of Planet Labs from the OHLCV data.
