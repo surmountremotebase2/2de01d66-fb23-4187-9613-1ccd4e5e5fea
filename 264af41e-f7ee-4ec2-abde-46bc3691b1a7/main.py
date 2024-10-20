@@ -28,7 +28,7 @@ class TradingStrategy(Strategy):
             price_change = current_price - self.previous_price
             
             # If price is up by at least $0.05, sell (set allocation to 0).
-            if price_change >= 0.03:
+            if price_change >= 0.07:
                 target_allocation = 0
                 log(f"Price increased by ${price_change} to ${current_price}. Setting target allocation for {self.ticker} to {target_allocation} (SELL).")
             
