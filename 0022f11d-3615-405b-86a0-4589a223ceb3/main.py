@@ -24,7 +24,7 @@ class TradingStrategy(Strategy):
         log(str(macd))
 
         # Extract MACD and Signal line lists. macd["MACD"] would give us the MACD line, whereas macd["signal"] would give us the Signal line.
-        macd_line, signal_line = macd["MACD_12_26_9"], macd["signal"]
+        macd_line, signal_line, histogram = surmount.macd(rxrx_data)
         
         if len(macd_line) > 1 and len(signal_line) > 1:
             last_close_price = rxrx_data[-1]["RXRX"]["close"]  # Get the latest closing price
