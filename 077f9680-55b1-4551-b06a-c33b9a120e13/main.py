@@ -21,7 +21,7 @@ class TradingStrategy(Strategy):
         # MACD calculation for RKLB
         macd_data = MACD("RKLB", data["ohlcv"], fast=12, slow=26)
         if macd_data is not None:
-            log(macd_data)
+            log(str(macd_data))
             macd_line = macd_data["MACD"]
             signal_line = macd_data["signal"]
             
