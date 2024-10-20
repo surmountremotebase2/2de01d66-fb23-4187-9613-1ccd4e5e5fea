@@ -1,3 +1,4 @@
+
 from surmount.base_class import Strategy, TargetAllocation
 from surmount.technical_indicators import SMA
 from surmount.logging import log
@@ -7,7 +8,7 @@ class TradingStrategy(Strategy):
         # Define the ticker we're interested in
         self.ticker = "LUNR"
         # Length of the moving average window
-        self.sma_length = 20
+        self.sma_length = 2
 
     @property
     def assets(self):
@@ -17,7 +18,7 @@ class TradingStrategy(Strategy):
     @property
     def interval(self):
         # Define the interval for data points (1 day in this case)
-        return "1day"
+        return "1hour"
 
     def run(self, data):
         # Calculate the simple moving average (SMA) for the specified length
