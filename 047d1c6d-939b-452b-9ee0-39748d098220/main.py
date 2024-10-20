@@ -8,7 +8,7 @@ class TradingStrategy(Strategy):
         # Starting capital (this variable is for illustration, cannot be directly used for trading decisions in Surmount Strategy)
         self.starting_capital = 200
         self.buy_threshold = -0.05  # Buy when the price drops by this amount ($)
-        self.sell_threshold = 0.07  # Sell when the price increases by this amount ($)
+        self.sell_threshold = 0.50  # Sell when the price increases by this amount ($)
         # Instantiated data list should be empty according to Surmount's conventions
         self.data_list = []
 
