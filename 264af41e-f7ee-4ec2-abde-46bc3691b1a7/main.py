@@ -1,4 +1,3 @@
-
 from surmount.base_class import Strategy, TargetAllocation
 from surmount.logging import log
 
@@ -35,7 +34,7 @@ class TradingStrategy(Strategy):
                 log(f"Price increased by ${price_change} to ${current_price}. Setting target allocation for {self.ticker} to {target_allocation} (SELL).")
             
             # If price is down by at least $0.05, buy (set allocation to 1).
-            elif price_change <= -0.9:
+            elif price_change <= -0.09:
                 target_allocation = 1
                 log(f"Price decreased by ${price_change} to ${current_price}. Setting target allocation for {self.ticker} to {target_allocation} (BUY).")
         
