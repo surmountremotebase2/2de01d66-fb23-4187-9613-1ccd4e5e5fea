@@ -22,7 +22,7 @@ class TradingStrategy(Strategy):
         ohlcv_data = data["ohlcv"]
         
         if len(ohlcv_data) > 20:  # Ensures there's enough data to calculate SMA
-            sma20 = SMA(ticker, ohlcv_data, length=20)  # Calculates 20 periods SMA
+            sma20 = SMA(ticker, ohlcv_data, length=2)  # Calculates 20 periods SMA
             
             current_price = ohlcv_data[-1][ticker]["close"]
             last_sma_value = sma20[-1]
