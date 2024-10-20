@@ -22,7 +22,7 @@ class TradingStrategy(Strategy):
         macd_data = MACD("RKLB", data["ohlcv"], fast=12, slow=26)
         if macd_data is not None:
             log(str(macd_data))
-            macd_line = macd_data["MACD"]
+            macd_line = macd_data["MACD_12_26_9"]
             signal_line = macd_data["signal"]
             
             if len(macd_line) > 1 and len(signal_line) > 1:
