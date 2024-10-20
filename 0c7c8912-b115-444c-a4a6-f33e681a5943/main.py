@@ -1,3 +1,4 @@
+
 from surmount.base_class import Strategy, TargetAllocation
 from surmount.data import OHLCV
 
@@ -12,7 +13,7 @@ class TradingStrategy(Strategy):
 
     @property
     def interval(self):
-        return "1min"  # Adjust based on available data intervals
+        return "1day"  # Adjust based on available data intervals
 
     def run(self, data):
         # Retrieve the latest OHLCV data for RocketLab
