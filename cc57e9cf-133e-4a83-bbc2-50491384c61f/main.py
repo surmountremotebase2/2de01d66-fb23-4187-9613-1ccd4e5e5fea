@@ -16,7 +16,7 @@ class TradingStrategy(Strategy):
     @property
     def interval(self):
         # Ensuring the strategy checks the price every minute
-        return "1min"
+        return "5min"
 
     @property
     def data(self):
