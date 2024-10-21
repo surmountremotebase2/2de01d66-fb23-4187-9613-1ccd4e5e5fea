@@ -56,10 +56,10 @@ class TradingStrategy(Strategy):
             if price_difference < 0:
                 log("*** buy ***")
                 # TODO: combine current price v previous price with sma
-                if -0.001 < price_difference < 0:
+                if -0.01 < price_difference < 0:
                     allocation = 0.55
                 
-                elif -.02 < price_difference <= -0.001: 
+                elif -.02 < price_difference <= -0.01: 
                     allocation = 0.6
 
                 elif -.05 < price_difference <= -0.03: 
