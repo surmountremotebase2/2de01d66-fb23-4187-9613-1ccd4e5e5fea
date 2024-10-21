@@ -49,7 +49,7 @@ class TradingStrategy(Strategy):
         
         allocation = 0
 
-        log(f"difference: ${price_difference}")
+        # log(f"difference: ${price_difference}")
 
         
         # TODO: combine current price v previous price with sma
