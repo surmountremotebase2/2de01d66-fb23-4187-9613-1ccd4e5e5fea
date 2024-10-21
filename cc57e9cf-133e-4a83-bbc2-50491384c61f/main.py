@@ -50,7 +50,7 @@ class TradingStrategy(Strategy):
         allocation = 0
 
         price_difference = current_price - previous_price
-        log(f"current price: {current_price}; previous price: {previous_price}; difference: {price_difference}")
+        log(f"current price: {current_price}; previous price: {self.previous_price}; difference: {price_difference}")
 
         
         # TODO: combine current price v previous price with sma
