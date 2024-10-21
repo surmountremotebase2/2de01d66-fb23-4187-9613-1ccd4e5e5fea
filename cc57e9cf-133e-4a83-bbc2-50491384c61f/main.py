@@ -6,7 +6,7 @@ from surmount.logging import log
 class TradingStrategy(Strategy):
     def __init__(self):
         self.ticker = "CLOV"
-        self.previous_price = None
+        self.previous_price = 0
 
         
     @property
