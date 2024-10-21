@@ -27,6 +27,7 @@ class TradingStrategy(Strategy):
         # Access the latest minute's close price data for CLOV
         clov_data = data["ohlcv"]
         current_price = clov_data[-1][self.ticker]["close"]
+        log(f"current: {current_price}; previous: {self.previous_price}")
 
         if self.previous_price is not None:
             price_difference = current_price - self.previous_price
