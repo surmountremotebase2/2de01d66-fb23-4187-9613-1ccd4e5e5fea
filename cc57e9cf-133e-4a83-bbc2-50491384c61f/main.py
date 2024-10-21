@@ -60,13 +60,13 @@ class TradingStrategy(Strategy):
             elif -.02 < price_difference <= -0.01: 
                 allocation = 0.6
 
-            elif -.03 < price_difference <= -0.05: 
+            elif -.05 < price_difference <= -0.03: 
                 allocation = 0.75
 
-            elif -.05 < price_difference <= -0.10: 
+            elif -.10 < price_difference <= -0.05: 
                 allocation = 0.80
 
-            elif -.10 < price_difference: 
+            elif -.10 > price_difference: 
                 allocation = 1
 
             elif price_difference > 0 and current_price > sma_3min_current:
