@@ -57,13 +57,13 @@ class TradingStrategy(Strategy):
         if -0.01 > price_difference > 0:
             allocation = 0.55
         
-        elif -.02 > price_difference => -0.01: 
+        elif -.02 > price_difference >= -0.01: 
             allocation = 0.6
 
-        elif -.03 > price_difference => -0.05: 
+        elif -.03 > price_difference >= -0.05: 
             allocation = 0.75
 
-        elif -.05 > price_difference => -0.10: 
+        elif -.05 > price_difference >= -0.10: 
             allocation = 0.80
 
         elif -.10 > price_difference: 
