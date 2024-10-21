@@ -30,46 +30,46 @@ class TradingStrategy(Strategy):
 
         if self.previous_price is not None:
            price_difference = current_price - self.previous_price
-        
-        # Calculate the 5-minute SMA for CLOV. Length is set to 5 for the 5-minute SMA.
-        clov_sma_10min = SMA(self.ticker, clov_data, 10)
-        clov_sma_5min = SMA(self.ticker, clov_data, 5)
-        clov_sma_3min = SMA(self.ticker, clov_data, 3)
-        clov_sma_1min = SMA(self.ticker, clov_data, 1)
-        
-        if len(clov_sma_5min) == 0:
-            # If we do not have enough data to calculate SMA, we do not return any allocation
-            return TargetAllocation({})
-        
-        # The last value from clov_sma_5min gives us the latest SMA value
-        sma_10_min_current = clov_sma_10min[-1]
-        sma_5min_current = clov_sma_5min[-1]
-        sma_3min_current = clov_sma_3min[-1]
-        sma_1min_current = clov_sma_1min[-1]
-        
-        allocation = 0
-
-        # log(f"difference: ${price_difference}")
-
-        
-        # TODO: combine current price v previous price with sma
-        if -0.01 < price_difference < 0:
-            allocation = 0.55
-        
-        elif -.02 < price_difference <= -0.01: 
-            allocation = 0.6
-
-        elif -.03 < price_difference <= -0.05: 
-            allocation = 0.75
-
-        elif -.05 < price_difference <= -0.10: 
-            allocation = 0.80
-
-        elif -.10 < price_difference: 
-            allocation = 1
-
-        elif price_difference > 0 and current_price > sma_3min_current:
+            
+            # Calculate the 5-minute SMA for CLOV. Length is set to 5 for the 5-minute SMA.
+            clov_sma_10min = SMA(self.ticker, clov_data, 10)
+            clov_sma_5min = SMA(self.ticker, clov_data, 5)
+            clov_sma_3min = SMA(self.ticker, clov_data, 3)
+            clov_sma_1min = SMA(self.ticker, clov_data, 1)
+            
+            if len(clov_sma_5min) == 0:
+                # If we do not have enough data to calculate SMA, we do not return any allocation
+                return TargetAllocation({})
+            
+            # The last value from clov_sma_5min gives us the latest SMA value
+            sma_10_min_current = clov_sma_10min[-1]
+            sma_5min_current = clov_sma_5min[-1]
+            sma_3min_current = clov_sma_3min[-1]
+            sma_1min_current = clov_sma_1min[-1]
+            
             allocation = 0
+
+            # log(f"difference: ${price_difference}")
+
+            
+            # TODO: combine current price v previous price with sma
+            if -0.01 < price_difference < 0:
+                allocation = 0.55
+            
+            elif -.02 < price_difference <= -0.01: 
+                allocation = 0.6
+
+            elif -.03 < price_difference <= -0.05: 
+                allocation = 0.75
+
+            elif -.05 < price_difference <= -0.10: 
+                allocation = 0.80
+
+            elif -.10 < price_difference: 
+                allocation = 1
+
+            elif price_difference > 0 and current_price > sma_3min_current:
+                allocation = 0
 
         else:
             log(f'{self.ticker} no conditions met; holding position')
