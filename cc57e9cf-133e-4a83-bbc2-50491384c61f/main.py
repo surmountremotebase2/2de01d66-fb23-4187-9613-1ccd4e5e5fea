@@ -29,7 +29,7 @@ class TradingStrategy(Strategy):
         current_price = clov_data[-1][self.ticker]["close"]
 
         if self.previous_price is not None:
-           price_change = current_price - self.previous_price
+           price_difference = current_price - self.previous_price
         
         # Calculate the 5-minute SMA for CLOV. Length is set to 5 for the 5-minute SMA.
         clov_sma_10min = SMA(self.ticker, clov_data, 10)
