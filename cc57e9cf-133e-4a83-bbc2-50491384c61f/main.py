@@ -30,7 +30,6 @@ class TradingStrategy(Strategy):
         log(f"current: {current_price}; previous: {self.previous_price}")
 
         if self.previous_price is not None:
-            price_difference = current_price - sma_3min_current
             
             # Calculate the 5-minute SMA for CLOV. Length is set to 5 for the 5-minute SMA.
             clov_sma_10min = SMA(self.ticker, clov_data, 10)
@@ -47,6 +46,8 @@ class TradingStrategy(Strategy):
             sma_5min_current = clov_sma_5min[-1]
             sma_3min_current = clov_sma_3min[-1]
             sma_1min_current = clov_sma_1min[-1]
+
+            price_difference = current_price - sma_1min_current
             
             allocation = 0
 
@@ -54,10 +55,10 @@ class TradingStrategy(Strategy):
 
             
             # TODO: combine current price v previous price with sma
-            if -0.01 < price_difference < 0:
+            if -0.001 < price_difference < 0:
                 allocation = 0.55
             
-            elif -.02 < price_difference <= -0.01: 
+            elif -.02 < price_difference <= -0.001: 
                 allocation = 0.6
 
             elif -.05 < price_difference <= -0.03: 
