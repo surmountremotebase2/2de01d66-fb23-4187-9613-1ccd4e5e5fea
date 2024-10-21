@@ -47,6 +47,7 @@ class TradingStrategy(Strategy):
             sma_1min_current = clov_sma_1min[-1]
 
             price_difference = current_price - sma_1min_current
+            log(f"price difference: {price_difference}")
             
             allocation = 0
 
