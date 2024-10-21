@@ -69,7 +69,7 @@ class TradingStrategy(Strategy):
         elif -.10 < price_difference: 
             allocation = 1
 
-        elif price_difference > 0 and current_price > sma_3min_current
+        elif price_difference > 0 and current_price > sma_3min_current:
             allocation = 0
 
         else:
