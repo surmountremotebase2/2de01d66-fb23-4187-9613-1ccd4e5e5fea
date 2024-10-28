@@ -1,3 +1,4 @@
+
 from surmount.base_class import Strategy, TargetAllocation
 from surmount.technical_indicators import SMA
 from surmount.logging import log
@@ -25,7 +26,7 @@ class TradingStrategy(Strategy):
             return TargetAllocation({"ASTS": 0})
         
         # Calculate the 1 minute SMA for ASTS
-        asts_sma = SMA("ASTS", asts_data, 1)[-1]  # Using the last SMA value
+        asts_sma = SMA("ASTS", asts_data, 5)[-1]  # Using the last SMA value
         current_price = asts_data[-1]["ASTS"]["close"]  # Get the most recent closing price
 
         allocation = 0
