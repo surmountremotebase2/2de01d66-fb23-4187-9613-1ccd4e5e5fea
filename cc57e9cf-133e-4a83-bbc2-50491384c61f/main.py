@@ -30,7 +30,7 @@ class TradingStrategy(Strategy):
         log(f"current: {current_price}; previous: {self.previous_price}")
 
         if self.previous_price is not None:  
-            # Calculate the 5-minute SMA for CLOV. Length is set to 5 for the 5-minute SMA.
+            # Calculate the 5-minute SMA for ASTS. Length is set to 5 for the 5-minute.
             clov_sma_10min = SMA(self.ticker, clov_data, 10)
             clov_sma_5min = SMA(self.ticker, clov_data, 5)
             clov_sma_3min = SMA(self.ticker, clov_data, 3)
