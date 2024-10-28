@@ -27,6 +27,7 @@ class TradingStrategy(Strategy):
         
         # Calculate the 1 minute SMA for ASTS
         asts_sma = SMA("ASTS", asts_data, 5)[-1]  # Using the last SMA value
+        asts_sma_1 = SMA("ASTS", asts_data, 1)[-1]  # Using the last SMA value
         current_price = asts_data[-1]["ASTS"]["close"]  # Get the most recent closing price
 
         allocation = 0
@@ -40,7 +41,7 @@ class TradingStrategy(Strategy):
             # The larger the gap, the higher the allocation, up to a maximum of 1
             difference = asts_sma - current_price
             allocation = min(1, difference)  # Example formula, adjust based on desired sensitivity
-        elif current_price > (asts_sma + sell_above):
+        elif current_price > (asts_sma_1 + sell_above):
             # Selling strategy, could be a negative allocation to indicate short-selling or just 0 to avoid action
             allocation = 0
             
