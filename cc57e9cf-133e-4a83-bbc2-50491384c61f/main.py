@@ -5,7 +5,7 @@ from surmount.logging import log
 
 class TradingStrategy(Strategy):
     def __init__(self):
-        self.ticker = "CLOV"
+        self.ticker = "ASTS"
         self.previous_price = None
 
         
@@ -24,7 +24,7 @@ class TradingStrategy(Strategy):
         return []
 
     def run(self, data):
-        # Access the latest minute's close price data for CLOV
+        # Access the latest minute's close price data for A
         clov_data = data["ohlcv"]
         current_price = clov_data[-1][self.ticker]["close"]
         log(f"current: {current_price}; previous: {self.previous_price}")
