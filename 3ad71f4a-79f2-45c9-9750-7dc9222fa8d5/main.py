@@ -1,4 +1,3 @@
-
 from surmount.base_class import Strategy, TargetAllocation
 from surmount.technical_indicators import SMA
 from surmount.logging import log
@@ -11,7 +10,7 @@ class TradingStrategy(Strategy):
     @property
     def interval(self):
         # Use 1min interval as the strategy revolves around quick changes
-        return "1min"
+        return "5min"
 
     @property
     def assets(self):
