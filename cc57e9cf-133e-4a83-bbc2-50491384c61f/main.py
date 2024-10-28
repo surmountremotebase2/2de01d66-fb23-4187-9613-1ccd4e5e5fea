@@ -48,8 +48,9 @@ class TradingStrategy(Strategy):
 
             sma_1min_1minago = stock_sma_1min[-2]
 
-            price_difference = current_price - sma_1min_current
-            log(f"price difference: {price_difference}")
+            price_difference = sma_1min_1minago - sma_1min_current
+            log(f"moving avg price difference: {price_difference}; current price: {current_price}")
+            
             
             allocation = 0
 
