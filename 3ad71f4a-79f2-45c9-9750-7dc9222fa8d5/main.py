@@ -40,7 +40,8 @@ class TradingStrategy(Strategy):
         if current_price < (asts_sma - buy_below):
             # The larger the gap, the higher the allocation, up to a maximum of 1
             difference = asts_sma - current_price
-            allocation = min(1, difference)  # Example formula, adjust based on desired sensitivity
+            # allocation = min(1, difference)  # Example formula, adjust based on desired sensitivity
+            allocation = 1
         elif current_price > (asts_sma_1 + sell_above):
             # Selling strategy, could be a negative allocation to indicate short-selling or just 0 to avoid action
             allocation = 0
