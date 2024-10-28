@@ -1,3 +1,4 @@
+
 from surmount.base_class import Strategy, TargetAllocation
 from surmount.technical_indicators import SMA
 from surmount.logging import log
@@ -38,7 +39,7 @@ class TradingStrategy(Strategy):
         if current_price < (asts_sma - buy_below):
             # The larger the gap, the higher the allocation, up to a maximum of 1
             difference = asts_sma - current_price
-            allocation = min(1, difference / sell_above)  # Example formula, adjust based on desired sensitivity
+            allocation = min(1, difference)  # Example formula, adjust based on desired sensitivity
         elif current_price > (asts_sma + sell_above):
             # Selling strategy, could be a negative allocation to indicate short-selling or just 0 to avoid action
             allocation = 0
