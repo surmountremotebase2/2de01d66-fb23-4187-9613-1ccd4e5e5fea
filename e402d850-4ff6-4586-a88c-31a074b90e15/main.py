@@ -30,12 +30,12 @@ class TradingStrategy(Strategy):
             last_sma_5min = sma_5min[-1]
 
             # If the 1min SMA is less than the 5min SMA by more than $0.50, set allocation to buy (1).
-            if last_sma_1min < (last_sma_5min - 0.25):
+            if current_price < (last_sma_5min - 0.25):
                 log("Buying signal: 1min SMA is significantly lower than 5min SMA.")
                 allocation = 1  # Buy signal
 
             # If the 1min SMA is greater than the 5min SMA by more than $1, set allocation to sell (0).
-            elif last_sma_1min > (last_sma_5min + 0.5):
+            elif current_price > (last_sma_5min + 0.5):
                 log("Selling signal: 1min SMA is significantly higher than 5min SMA.")
                 allocation = 0  # Sell signal / take no position
         
