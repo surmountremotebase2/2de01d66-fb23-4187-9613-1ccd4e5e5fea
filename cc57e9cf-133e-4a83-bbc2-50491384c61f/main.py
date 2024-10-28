@@ -25,6 +25,8 @@ class TradingStrategy(Strategy):
 
     def run(self, data):
         # Access the latest minute's close price data for ASTS
+        log(f"stofck_data)
+        
         stock_data = data["ohlcv"]
         current_price = stock_data[-1][self.ticker]["close"]
         log(f"current: {current_price}; previous: {self.previous_price}")
@@ -37,6 +39,7 @@ class TradingStrategy(Strategy):
             stock_sma_1min = SMA(self.ticker, stock_data, 1)
             
             if len(stock_sma_5min) == 0:
+                log(f"not enough data")
                 # If we do not have enough data to calculate SMA, we do not return any allocation
                 return TargetAllocation({})
             
@@ -48,9 +51,9 @@ class TradingStrategy(Strategy):
 
             sma_1min_1minago = stock_sma_1min[-2]
 
+
             price_difference = sma_1min_1minago - sma_1min_current
             log(f"moving avg price difference: {price_difference}; current price: {current_price}")
-            
             
             allocation = 0
 
@@ -74,7 +77,7 @@ class TradingStrategy(Strategy):
                 elif -.10 > price_difference: 
                     allocation = 1
 
-            elif price_difference > 0:
+            elif price_difference > 1:
                 log("$$$ sell $$$")
                 if current_price > sma_3min_current:
                     allocation = 0.25
