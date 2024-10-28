@@ -24,7 +24,7 @@ class TradingStrategy(Strategy):
         return []
 
     def run(self, data):
-        # Access the latest minute's close price data for A
+        # Access the latest minute's close price data for ASTS
         clov_data = data["ohlcv"]
         current_price = clov_data[-1][self.ticker]["close"]
         log(f"current: {current_price}; previous: {self.previous_price}")
