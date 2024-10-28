@@ -46,6 +46,8 @@ class TradingStrategy(Strategy):
             sma_3min_current = stock_sma_3min[-1]
             sma_1min_current = stock_sma_1min[-1]
 
+            sma_1min_1minago = stock_sma_1min[-2]
+
             price_difference = current_price - sma_1min_current
             log(f"price difference: {price_difference}")
             
