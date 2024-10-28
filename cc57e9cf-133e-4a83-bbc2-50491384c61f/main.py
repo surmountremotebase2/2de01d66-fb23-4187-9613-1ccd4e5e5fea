@@ -25,26 +25,26 @@ class TradingStrategy(Strategy):
 
     def run(self, data):
         # Access the latest minute's close price data for ASTS
-        clov_data = data["ohlcv"]
-        current_price = clov_data[-1][self.ticker]["close"]
+        stock_data = data["ohlcv"]
+        current_price = stock_data[-1][self.ticker]["close"]
         log(f"current: {current_price}; previous: {self.previous_price}")
 
         if self.previous_price is not None:  
             # Calculate the 5-minute SMA for ASTS. Length is set to 5 for the 5-minute.
-            clov_sma_10min = SMA(self.ticker, clov_data, 10)
-            clov_sma_5min = SMA(self.ticker, clov_data, 5)
-            clov_sma_3min = SMA(self.ticker, clov_data, 3)
-            clov_sma_1min = SMA(self.ticker, clov_data, 1)
+            stock_sma_10min = SMA(self.ticker, stock_data, 10)
+            stock_sma_5min = SMA(self.ticker, stock_data, 5)
+            stock_sma_3min = SMA(self.ticker, stock_data, 3)
+            stock_sma_1min = SMA(self.ticker, stock_data, 1)
             
-            if len(clov_sma_5min) == 0:
+            if len(stock_sma_5min) == 0:
                 # If we do not have enough data to calculate SMA, we do not return any allocation
                 return TargetAllocation({})
             
-            # The last value from clov_sma_5min gives us the latest SMA value
-            sma_10_min_current = clov_sma_10min[-1]
-            sma_5min_current = clov_sma_5min[-1]
-            sma_3min_current = clov_sma_3min[-1]
-            sma_1min_current = clov_sma_1min[-1]
+            # The last value from stock_sma_5min gives us the latest SMA value
+            sma_10_min_current = stock_sma_10min[-1]
+            sma_5min_current = stock_sma_5min[-1]
+            sma_3min_current = stock_sma_3min[-1]
+            sma_1min_current = stock_sma_1min[-1]
 
             price_difference = current_price - sma_1min_current
             log(f"price difference: {price_difference}")
